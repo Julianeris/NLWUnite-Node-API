@@ -2,7 +2,20 @@ POST http://localhost:3333/events
 Content-Type: application/json
 
 {
-    "title": "United Summit",
+    "title": "Evento 1",
     "details": "Um evento para quem é apaixonado por programação",
-    "maximumAttendees": 100
+    "maximumAttendees": 1
 }
+
+####
+
+POST http://localhost:3333/events/a0f8525d-ae6d-4319-8d4f-1bdb215a4dc0/attendee
+Content-Type: application/json
+
+ {
+    "name": "Julia Lima2",
+    "email": "julianlima2@outlook.com"
+ }
+####
+
+GET http://localhost:3333/attendees/1/badge
