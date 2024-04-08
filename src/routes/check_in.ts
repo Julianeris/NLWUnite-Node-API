@@ -8,6 +8,8 @@ export async function checkIn(app:FastifyInstance) {
         .withTypeProvider<ZodTypeProvider>()
         .get('/attendees/:attendeeId/check-in', {
             schema:{
+                summary: 'CheckIn an attendee',
+                tags: ['Checkins'],
                 params: z.object ({
                     attendeeId: z.coerce.number().int()
                 }),

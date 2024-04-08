@@ -2,13 +2,14 @@ import { FastifyInstance } from "fastify";
 import { ZodTypeProvider } from "fastify-type-provider-zod";
 import z from "zod";
 import { prisma } from "../lib/prisma";
-import { Prisma } from "@prisma/client";
 
 export async function registerForEvet(app: FastifyInstance) {
     app
         .withTypeProvider<ZodTypeProvider>()
         .post('/events/:eventId/attendee', {
             schema: {
+                summary: 'Register for an event',
+                tags: ['Events'],
                 body: z.object({
                     name: z.string().min(4),
                     email: z.string().email()
